@@ -129,7 +129,8 @@ pub(crate) async fn websocket_hub<'a>(
         return match message {
             Message::Text(text) => {
                 event!(Level::TRACE, text, "text message received");
-                let command = client.receive_messages(ClientMessage::Json(text))?;
+                let client_message = ClientMessage::Json(text);
+                let command = client.receive_messages(client_message)?;
                 Ok(command.into())
             }
             Message::Binary(bytes) => {

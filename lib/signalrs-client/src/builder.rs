@@ -203,6 +203,9 @@ impl ClientBuilder {
 
         let mut request = reqwest::Client::new().post(negotiate_endpoint);
 
+        // Add Content-Length header
+        request = request.header("Content-Length", "0");
+
         request = match &self.auth {
             Auth::None => request,
             Auth::Basic { user, password } => request.basic_auth(user, password.clone()),
