@@ -8,7 +8,7 @@ pub const RECORD_SEPARATOR: &str = "\u{001E}";
 #[derive(Debug, Clone, Serialize, PartialEq)]
 #[serde(untagged)]
 #[non_exhaustive]
-pub(crate) enum ClientMessage {
+pub enum ClientMessage {
     Json(String),
     Binary(Vec<u8>),
 }
