@@ -6,9 +6,8 @@ mod functions;
 pub(crate) mod invocation;
 
 use self::{
-    error::{HubError, MalformedRequest},
-    functions::{Handler, HandlerWrapper, HubMethod},
-    invocation::HubInvocation,
+    error::MalformedRequest,
+    functions::{ HandlerWrapper, HubMethod},
 };
 use super::messages::ClientMessage;
 use crate::protocol::MessageType;
@@ -16,6 +15,10 @@ use serde::Deserialize;
 use std::collections::HashMap;
 use tracing::*;
 
+
+pub use self::functions::Handler;
+pub use self::invocation::HubInvocation;
+pub use self::error::HubError;
 /// Client-side hub
 ///
 /// [`Hub`] can be called by the server. It currently supports only value-like arguments - ones that can be deserialized from a single message.
