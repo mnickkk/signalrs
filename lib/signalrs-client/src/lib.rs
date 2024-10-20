@@ -95,8 +95,8 @@ pub mod builder;
 pub mod error;
 pub mod hub;
 pub mod invocation;
+pub mod messages;
 
-mod messages;
 mod protocol;
 mod stream_ext;
 mod transport;
